@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="common" />
+        <module name="provider-hystrix-payment8001" />
         <module name="eureka-7001" />
       </profile>
     </annotationProcessing>

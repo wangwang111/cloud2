@@ -10,6 +10,7 @@
     <modules>
         <module>eureka-7001</module>
         <module>common</module>
+        <module>provider-hystrix-payment8001</module>
     </modules>
     <packaging>pom</packaging>
 
