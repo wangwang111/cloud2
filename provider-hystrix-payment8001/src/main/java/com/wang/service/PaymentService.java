@@ -9,6 +9,8 @@ import com.wang.entity.Payment;
  **/
 public interface PaymentService {
 
+    String paymentCircuitBreaker(Integer id);
+
     String paymentOk(Integer id);
 
     String paymentTimeOut(Integer id);

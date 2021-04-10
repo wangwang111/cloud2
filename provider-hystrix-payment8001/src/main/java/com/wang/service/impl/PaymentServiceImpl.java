@@ -5,7 +5,7 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import com.wang.service.PaymentService;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -14,6 +14,24 @@ import java.util.concurrent.TimeUnit;
  **/
 @Service
 public class PaymentServiceImpl implements PaymentService {
+
+    @HystrixCommand(fallbackMethod = "payCircuitBreakerFallback", commandProperties = {
+            @HystrixProperty(name = "circuitBreaker.enabled", value = "true"), // 是否开启断路器
+            @HystrixProperty(name = "circuitBreaker.requestVolumeThrshold", value = "10"), // 请求次数
+            @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "10000"), // 时间范围
+            @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value = "60"), // 失败率
+    })
+    @Override
+    public String paymentCircuitBreaker(Integer id) {
+        if (id < 0) {
+            throw new RuntimeException("id不能为负数！");
+        }
+        return Thread.currentThread().getName() + "\t 调用成功，流水号：" + UUID.randomUUID();
+    }
+
+    public String payCircuitBreakerFallback(Integer id) {
+        return "id不能为负数，请稍后再试！";
+    }
 
     @Override
     public String paymentOk(Integer id) {
