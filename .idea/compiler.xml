@@ -8,7 +8,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="consumer-feign-hystrix-order80" />
+        <module name="cloudalibaba-provider-payment9001" />
         <module name="common" />
+        <module name="cloudalibaba-sentinel-service8401" />
         <module name="provider-hystrix-payment8001" />
         <module name="eureka-7001" />
       </profile>

@@ -12,6 +12,8 @@
         <module>common</module>
         <module>provider-hystrix-payment8001</module>
         <module>consumer-feign-hystrix-order80</module>
+        <module>cloudalibaba-sentinel-service8401</module>
+        <module>cloudalibaba-provider-payment9001</module>
     </modules>
     <packaging>pom</packaging>
 
